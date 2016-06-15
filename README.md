@@ -2,7 +2,7 @@
 # license: Copyright © 2011-2016 MOLPay Sdn Bhd. All Rights Reserved. 
 -->
 
-#  molpay-mobile-xdk-eclipse
+#  molpay-mobile-xdk-android-eclipse
 
 This is the complete and functional MOLPay Android(Eclipse) payment module that is ready to be implemented into Eclipse IDE by import the molpay-mobile-xdk-eclipse into project workspace. An example application project (MOLPayXdkExample) is provided for MOLPayXDK framework integration reference.
 
