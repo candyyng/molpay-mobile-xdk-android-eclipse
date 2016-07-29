@@ -112,6 +112,9 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
         // Optional, set the token id to nominate a preferred token as the default selection
         paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
 
+        // Optional, credit card transaction type, set "AUTH" to authorize the transaction
+        paymentDetails.put(MOLPayActivity.mp_tcctype, "");
+
 ## Start the payment module
 
     startActivityForResult(intent, MOLPayActivity.MOLPayXDK);
