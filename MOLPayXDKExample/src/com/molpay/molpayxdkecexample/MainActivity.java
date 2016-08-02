@@ -35,70 +35,33 @@ public class MainActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 		
-		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();
-		
-//		paymentDetails.put(MOLPayActivity.mp_amount, "1.10");
-//        paymentDetails.put(MOLPayActivity.mp_username, "api_focuspoint");
-//        paymentDetails.put(MOLPayActivity.mp_password, "api_f0cu$point%676");
-//        paymentDetails.put(MOLPayActivity.mp_merchant_ID, "focuspoint");
-//        paymentDetails.put(MOLPayActivity.mp_app_name, "appfocuspoint");
-//        paymentDetails.put(MOLPayActivity.mp_order_ID, "000001");
-//        paymentDetails.put(MOLPayActivity.mp_currency, "MYR");
-//        paymentDetails.put(MOLPayActivity.mp_country, "MY");
-//        paymentDetails.put(MOLPayActivity.mp_verification_key, "8e3ec824e3ac5a3fd289c8cf51eeb1da");
-//        paymentDetails.put(MOLPayActivity.mp_channel, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_description, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_name, "Developer");
-//        paymentDetails.put(MOLPayActivity.mp_bill_email, "faredhadi@gmail.com");
-//        paymentDetails.put(MOLPayActivity.mp_bill_mobile, "0123456789");
-//        paymentDetails.put(MOLPayActivity.mp_channel_editing, false);
-//        paymentDetails.put(MOLPayActivity.mp_editing_enabled, false);
-//        paymentDetails.put(MOLPayActivity.mp_transaction_id, "");
-//        paymentDetails.put(MOLPayActivity.mp_request_type, "");
-		
-		paymentDetails.put(MOLPayActivity.mp_amount, "1.1");
-		paymentDetails.put(MOLPayActivity.mp_username, "molpayapi");
-		paymentDetails.put(MOLPayActivity.mp_password, "*M0Lp4y4p1!*");
-		paymentDetails.put(MOLPayActivity.mp_merchant_ID, "molpaymerchant");
-		paymentDetails.put(MOLPayActivity.mp_app_name, "wilwe_makan2");
-		paymentDetails.put(MOLPayActivity.mp_order_ID, "XP034");
-      	paymentDetails.put(MOLPayActivity.mp_currency, "MYR");
-      	paymentDetails.put(MOLPayActivity.mp_country, "MY");
-      	paymentDetails.put(MOLPayActivity.mp_verification_key, "501c4f508cf1c3f486f4f5c820591f41");
-      	paymentDetails.put(MOLPayActivity.mp_channel, "");
-      	paymentDetails.put(MOLPayActivity.mp_bill_description, "X-Platform debug");
-      	paymentDetails.put(MOLPayActivity.mp_bill_name, "Developer");
-      	paymentDetails.put(MOLPayActivity.mp_bill_email, "clewlb@gmail.com");
-      	paymentDetails.put(MOLPayActivity.mp_bill_mobile, "+1234567");
-      	paymentDetails.put(MOLPayActivity.mp_channel_editing, false);
-      	paymentDetails.put(MOLPayActivity.mp_editing_enabled, false);
-      	paymentDetails.put(MOLPayActivity.mp_transaction_id, "");//6713246
-      	paymentDetails.put(MOLPayActivity.mp_request_type, "");
+		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();    	
+     
+		paymentDetails.put(MOLPayActivity.mp_amount, "");
+        paymentDetails.put(MOLPayActivity.mp_username, "");
+        paymentDetails.put(MOLPayActivity.mp_password, "");
+        paymentDetails.put(MOLPayActivity.mp_merchant_ID, "");
+        paymentDetails.put(MOLPayActivity.mp_app_name, "");
+        paymentDetails.put(MOLPayActivity.mp_order_ID, "");
+        paymentDetails.put(MOLPayActivity.mp_currency, "");
+        paymentDetails.put(MOLPayActivity.mp_country, "");
+        paymentDetails.put(MOLPayActivity.mp_verification_key, "");
+        paymentDetails.put(MOLPayActivity.mp_channel, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_description, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_name, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_email, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_mobile, "");
+        paymentDetails.put(MOLPayActivity.mp_channel_editing, false);
+        paymentDetails.put(MOLPayActivity.mp_editing_enabled, false);
+        paymentDetails.put(MOLPayActivity.mp_transaction_id, "");//6713246
+        paymentDetails.put(MOLPayActivity.mp_request_type, "");
+        
+     // Optional, set the token id to nominate a preferred token as the default selection, 
+//        set "new" to allow new card only
+      paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
       	
      // Optional, credit card transaction type, set "AUTH" to authorize the transaction
         paymentDetails.put(MOLPayActivity.mp_tcctype, "");
-		
-//		paymentDetails.put(MOLPayActivity.mp_amount, "");
-//        paymentDetails.put(MOLPayActivity.mp_username, "");
-//        paymentDetails.put(MOLPayActivity.mp_password, "");
-//        paymentDetails.put(MOLPayActivity.mp_merchant_ID, "");
-//        paymentDetails.put(MOLPayActivity.mp_app_name, "");
-//        paymentDetails.put(MOLPayActivity.mp_order_ID, "");
-//        paymentDetails.put(MOLPayActivity.mp_currency, "");
-//        paymentDetails.put(MOLPayActivity.mp_country, "");
-//        paymentDetails.put(MOLPayActivity.mp_verification_key, "");
-//        paymentDetails.put(MOLPayActivity.mp_channel, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_description, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_name, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_email, "");
-//        paymentDetails.put(MOLPayActivity.mp_bill_mobile, "");
-//        paymentDetails.put(MOLPayActivity.mp_channel_editing, false);
-//        paymentDetails.put(MOLPayActivity.mp_editing_enabled, false);
-//        paymentDetails.put(MOLPayActivity.mp_transaction_id, "");//6713246
-//        paymentDetails.put(MOLPayActivity.mp_request_type, "");
-        
-     // Optional, set the token id to nominate a preferred token as the default selection
-     // paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
         
         //String binlock[] = {"123456","234567"};
         //paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock);

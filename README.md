@@ -109,7 +109,7 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
         paymentDetails.put(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
         paymentDetails.put(MOLPayActivity.mp_request_type, "");
 
-        // Optional, set the token id to nominate a preferred token as the default selection
+        // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only
         paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
 
         // Optional, credit card transaction type, set "AUTH" to authorize the transaction
