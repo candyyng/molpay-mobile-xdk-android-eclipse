@@ -118,6 +118,16 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
         // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf  
         paymentDetails.put(MOLPayActivity.mp_is_recurring, true);
 
+        // Optional for channels restriction 
+        String allowedChannels[] = {"credit","credit3"};
+        paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedChannels);
+
+        // Optional for sandboxed development environment, set boolean value to enable. 
+        paymentDetails.put(MOLPayActivity.mp_sandbox_mode, true);
+        
+        // Optional for custom css
+        paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
+
 ## Start the payment module
 
     startActivityForResult(intent, MOLPayActivity.MOLPayXDK);
