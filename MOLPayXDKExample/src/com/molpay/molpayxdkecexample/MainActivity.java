@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 		
-		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();
-		
+		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();		
 		paymentDetails.put(MOLPayActivity.mp_amount, ""); // Mandatory
 		paymentDetails.put(MOLPayActivity.mp_username, ""); // Mandatory
 		paymentDetails.put(MOLPayActivity.mp_password, ""); // Mandatory
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //	    paymentDetails.put(MOLPayActivity.mp_is_recurring, true); // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf
 //		String allowedChannels[] = {"credit","credit3"}; // Optional for channels restriction
 //		paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedChannels); // Optional for channels restriction
+//		paymentDetails.put(MOLPayActivity.mp_express_mode, true); // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
 //		paymentDetails.put(MOLPayActivity.mp_sandbox_mode, true); // Optional for sandboxed development environment, set boolean value to enable.
 //		paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
         
