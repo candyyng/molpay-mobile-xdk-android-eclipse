@@ -35,38 +35,40 @@ public class MainActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 		
-		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();	
-		paymentDetails.put(MOLPayActivity.mp_amount, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_username, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_password, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_merchant_ID, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_app_name, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_order_ID, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_currency, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_country, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_verification_key, ""); // Mandatory
-		paymentDetails.put(MOLPayActivity.mp_channel, ""); // Optional
-		paymentDetails.put(MOLPayActivity.mp_bill_description, ""); // Optional
-		paymentDetails.put(MOLPayActivity.mp_bill_name, ""); // Optional
-		paymentDetails.put(MOLPayActivity.mp_bill_email, ""); // Optional
-		paymentDetails.put(MOLPayActivity.mp_bill_mobile, ""); // Optional
-		paymentDetails.put(MOLPayActivity.mp_channel_editing, false); // Option to allow channel selection.
-		paymentDetails.put(MOLPayActivity.mp_editing_enabled, false); // Option to allow billing information editing.
-		paymentDetails.put(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
-		paymentDetails.put(MOLPayActivity.mp_request_type, ""); // Optional, set 'Status' when performing a transactionRequest
-		
-//		paymentDetails.put(MOLPayActivity.mp_is_escrow, ""); // Optional for escrow Put "1" to enable escrow
-//		String binlock[] = {"123456","234567"}; // Optional for credit card BIN restrictions
-//		paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock); // Optional for credit card BIN restrictions
-//      paymentDetails.put(MOLPayActivity.mp_bin_lock_err_msg, "Only UOB allowed");	// Optional for credit card BIN restrictions   
-//	    paymentDetails.put(MOLPayActivity.mp_preferred_token, ""); // Optional, set the token id to nominate a preferred token as the default selection
-//		paymentDetails.put(MOLPayActivity.mp_tcctype, ""); // Optional, credit card transaction type, set "AUTH" to authorize the transaction
-//	    paymentDetails.put(MOLPayActivity.mp_is_recurring, true); // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf
-//		String allowedChannels[] = {"credit","credit3"}; // Optional for channels restriction
-//		paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedChannels); // Optional for channels restriction
-//      paymentDetails.put(MOLPayActivity.mp_express_mode, true); // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
-//		paymentDetails.put(MOLPayActivity.mp_sandbox_mode, true); // Optional for sandboxed development environment, set boolean value to enable.
-//		paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
+		HashMap<String, Object> paymentDetails = new HashMap<String, Object>();    	
+     
+		paymentDetails.put(MOLPayActivity.mp_amount, "");
+        paymentDetails.put(MOLPayActivity.mp_username, "");
+        paymentDetails.put(MOLPayActivity.mp_password, "");
+        paymentDetails.put(MOLPayActivity.mp_merchant_ID, "");
+        paymentDetails.put(MOLPayActivity.mp_app_name, "");
+        paymentDetails.put(MOLPayActivity.mp_order_ID, "");
+        paymentDetails.put(MOLPayActivity.mp_currency, "");
+        paymentDetails.put(MOLPayActivity.mp_country, "");
+        paymentDetails.put(MOLPayActivity.mp_verification_key, "");
+        paymentDetails.put(MOLPayActivity.mp_channel, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_description, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_name, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_email, "");
+        paymentDetails.put(MOLPayActivity.mp_bill_mobile, "");
+        paymentDetails.put(MOLPayActivity.mp_channel_editing, false);
+        paymentDetails.put(MOLPayActivity.mp_editing_enabled, false);
+        paymentDetails.put(MOLPayActivity.mp_transaction_id, "");//6713246
+        paymentDetails.put(MOLPayActivity.mp_request_type, "");
+        
+     // Optional, set the token id to nominate a preferred token as the default selection, 
+//        set "new" to allow new card only
+      paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
+      	
+     // Optional, credit card transaction type, set "AUTH" to authorize the transaction
+        paymentDetails.put(MOLPayActivity.mp_tcctype, "");
+        
+        //String binlock[] = {"123456","234567"};
+        //paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock);
+        //paymentDetails.put(MOLPayActivity.mp_bin_lock_err_msg, "Wrong BIN format");
+        //paymentDetails.put(MOLPayActivity.mp_is_escrow, "");
+        //paymentDetails.put(MOLPayActivity.mp_filter, "1");
+        //paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
         
         Intent intent = new Intent(MainActivity.this, MOLPayActivity.class);
         intent.putExtra(MOLPayActivity.MOLPayPaymentDetails, paymentDetails);

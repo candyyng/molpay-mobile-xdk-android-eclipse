@@ -109,28 +109,12 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
         paymentDetails.put(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
         paymentDetails.put(MOLPayActivity.mp_request_type, "");
 
-        // Optional, use this to customize the UI theme for the payment info screen, the original XDK custom.css file is provided at Example project source for reference and implementation.
-        paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
-
         // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only
         paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
 
         // Optional, credit card transaction type, set "AUTH" to authorize the transaction
         paymentDetails.put(MOLPayActivity.mp_tcctype, "");
 
-        // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf  
-        paymentDetails.put(MOLPayActivity.mp_is_recurring, true);
-
-        // Optional for channels restriction 
-        String allowedChannels[] = {"credit","credit3"};
-        paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedChannels);
-
-        // Optional for sandboxed development environment, set boolean value to enable. 
-        paymentDetails.put(MOLPayActivity.mp_sandbox_mode, true);
-
-        // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
-        paymentDetails.put(MOLPayActivity.mp_express_mode, true);
-        
 ## Start the payment module
 
     startActivityForResult(intent, MOLPayActivity.MOLPayXDK);
@@ -147,6 +131,13 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
     
     4) After the user done the paying at the 7-Eleven counter, they can close and exit MOLPay XDK by clicking the “Close” button again.
 
+## XDK built-in checksum validator caveats 
+
+    All XDK come with a built-in checksum validator to validate all incoming checksums and return the validation result through the "mp_secured_verified" parameter. However, this mechanism will fail and always return false if merchants are implementing the private secret key (which the latter is highly recommended and prefereable.) If you would choose to implement the private secret key, you may ignore the "mp_secured_verified" and send the checksum back to your server for validation. 
+
+## Private Secret Key checksum validation formula
+
+    chksum = MD5(mp_merchant_ID + results.msgType + results.txn_ID + results.amount + results.status_code + merchant_private_secret_key)
 
 ## Support
 
