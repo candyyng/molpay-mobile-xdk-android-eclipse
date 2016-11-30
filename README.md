@@ -4,7 +4,7 @@
 
 #  molpay-mobile-xdk-android-eclipse
 
-This is the complete and functional MOLPay Android(Eclipse) payment module that is ready to be implemented into Eclipse IDE by import the molpay-mobile-xdk-eclipse into project workspace. An example application project (MOLPayXdkExample) is provided for MOLPayXDK framework integration reference.
+This is the complete and functional MOLPay Android(Eclipse) payment module that is ready to be implemented into Eclipse IDE by import the molpay-mobile-xdk-android-eclipse into project workspace. An example application project (MOLPayXdkExample) is provided for MOLPayXDK framework integration reference.
 
 ## Recommended configurations
 
@@ -20,15 +20,15 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
 
 ## Installation
 
-    Step 1 - Download molpayXdkEclipse and import it into project workspace. *NOTE : molpayXdkEclipse required 'android-support-v7-appcompat'
-    
-    Step 2 - Add \molpayXdkEclipse as reference library in project properties;
-    
-    Step 3 - Add MOLPayActivity declaration in project manifest
-    
-    Step 4 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into \Assets folder of your project
-    
-    Step 5 - Add the result callback function to get return results when the payment activity ended,
+    Step 1 - Download molpayXdkEclipse and import it into project workspace. Note that molpayXdkEclipse requires 'android-support-v7-appcompat'.
+
+    Step 2 - Add \molpayXdkEclipse as reference library in project properties.
+
+    Step 3 - Add MOLPayActivity declaration in project manifest.
+
+    Step 4 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into assets\ folder of your project.
+
+    Step 5 - Add the result callback function to get return results when the payment activity ended.
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -72,48 +72,72 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
 ## Prepare the Payment detail object
 
     HashMap<String, Object> paymentDetails = new HashMap<>();
-        
-        // Mandatory String. A value not less than '1.00'
-        paymentDetails.put(MOLPayActivity.mp_amount, "1.10"); 
-        
-        // Mandatory String. Values obtained from MOLPay
-        paymentDetails.put(MOLPayActivity.mp_username, "username");
-        paymentDetails.put(MOLPayActivity.mp_password, "password");
-        paymentDetails.put(MOLPayActivity.mp_merchant_ID, "merchantid");
-        paymentDetails.put(MOLPayActivity.mp_app_name, "appname");
-        paymentDetails.put(MOLPayActivity.mp_verification_key, "vkey123");
-    
-        // Mandatory String. Payment values
-        paymentDetails.put(MOLPayActivity.mp_order_ID, "orderid123");
-        paymentDetails.put(MOLPayActivity.mp_currency, "MYR");
-        paymentDetails.put(MOLPayActivity.mp_country, "MY");
-        
-        // Optional String.
-        paymentDetails.put(MOLPayActivity.mp_channel, "multi"); // Use 'multi' for all available channels option. For individual channel seletion, please refer to "Channel Parameter" in "Channel Lists" in the MOLPay API Spec for Merchant pdf. 
-        paymentDetails.put(MOLPayActivity.mp_bill_description, "billdesc");
-        paymentDetails.put(MOLPayActivity.mp_bill_name, "billname");
-        paymentDetails.put(MOLPayActivity.mp_bill_email, "email@domain.com");
-        paymentDetails.put(MOLPayActivity.mp_bill_mobile, "+1234567");
-        paymentDetails.put(MOLPayActivity.mp_channel_editing, false); // Option to allow channel selection.
-        paymentDetails.put(MOLPayActivity.mp_editing_enabled, false); // Option to allow billing information editing.
-    
-        // Optional for Escrow
-        paymentDetails.put(MOLPayActivity.mp_is_escrow, ""); // Put "1" to enable escrow
-        
-        // Optional for credit card BIN restrictions
-        String binlock[] = {"414170","414171"};
-        paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock);
-        paymentDetails.put(MOLPayActivity.mp_bin_lock_err_msg, "Only UOB allowed");
-    
-        // For transaction request use only, do not use this on payment process
-        paymentDetails.put(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
-        paymentDetails.put(MOLPayActivity.mp_request_type, "");
 
-        // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only
-        paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
+    // Mandatory String. A value not less than '1.00'
+    paymentDetails.put(MOLPayActivity.mp_amount, ""); 
 
-        // Optional, credit card transaction type, set "AUTH" to authorize the transaction
-        paymentDetails.put(MOLPayActivity.mp_tcctype, "");
+    // Mandatory String. Values obtained from MOLPay
+    paymentDetails.put(MOLPayActivity.mp_username, "");
+    paymentDetails.put(MOLPayActivity.mp_password, "");
+    paymentDetails.put(MOLPayActivity.mp_merchant_ID, "");
+    paymentDetails.put(MOLPayActivity.mp_app_name, "");
+    paymentDetails.put(MOLPayActivity.mp_verification_key, "");
+
+    // Mandatory String. Payment values
+    paymentDetails.put(MOLPayActivity.mp_order_ID, "");
+    paymentDetails.put(MOLPayActivity.mp_currency, "MYR");
+    paymentDetails.put(MOLPayActivity.mp_country, "MY");
+
+    // Optional String.
+    paymentDetails.put(MOLPayActivity.mp_channel, ""); // Use 'multi' for all available channels option. For individual channel seletion, please refer to "Channel Parameter" in "Channel Lists" in the MOLPay API Spec for Merchant pdf. 
+    paymentDetails.put(MOLPayActivity.mp_bill_description, "");
+    paymentDetails.put(MOLPayActivity.mp_bill_name, "");
+    paymentDetails.put(MOLPayActivity.mp_bill_email, "");
+    paymentDetails.put(MOLPayActivity.mp_bill_mobile, "");
+    paymentDetails.put(MOLPayActivity.mp_channel_editing, false); // Option to allow channel selection.
+    paymentDetails.put(MOLPayActivity.mp_editing_enabled, false); // Option to allow billing information editing.
+
+    // Optional for Escrow
+    paymentDetails.put(MOLPayActivity.mp_is_escrow, ""); // Put "1" to enable escrow
+
+    // Optional for credit card BIN restrictions
+    String binlock[] = {"",""};
+    paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock);
+    paymentDetails.put(MOLPayActivity.mp_bin_lock_err_msg, "");
+
+    // For transaction request use only, do not use this on payment process
+    paymentDetails.put(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
+    paymentDetails.put(MOLPayActivity.mp_request_type, "");
+
+    // Optional, use this to customize the UI theme for the payment info screen, the original XDK custom.css file is provided at Example project source for reference and implementation.
+    paymentDetails.put(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
+
+    // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only
+    paymentDetails.put(MOLPayActivity.mp_preferred_token, "");
+
+    // Optional, credit card transaction type, set "AUTH" to authorize the transaction
+    paymentDetails.put(MOLPayActivity.mp_tcctype, "");
+
+    // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf 
+    paymentDetails.put(MOLPayActivity.mp_is_recurring, false);
+
+    // Optional for channels restriction
+    String allowedchannels[] = {"",""};
+    paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedchannels);
+
+    // Optional for sandboxed development environment, set boolean value to enable.
+    paymentDetails.put(MOLPayActivity.mp_sandbox_mode, false);
+
+    // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
+    paymentDetails.put(MOLPayActivity.mp_express_mode, false);
+
+    // Optional, enable this for extended email format validation based on W3C standards.
+    paymentDetails.put(MOLPayActivity.mp_advanced_email_validation_enabled, false);
+
+    // Optional, enable this for extended phone format validation based on Google i18n standards.
+    paymentDetails.put(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
+
+
 
 ## Start the payment module
 
@@ -131,13 +155,6 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
     
     4) After the user done the paying at the 7-Eleven counter, they can close and exit MOLPay XDK by clicking the “Close” button again.
 
-## XDK built-in checksum validator caveats 
-
-    All XDK come with a built-in checksum validator to validate all incoming checksums and return the validation result through the "mp_secured_verified" parameter. However, this mechanism will fail and always return false if merchants are implementing the private secret key (which the latter is highly recommended and prefereable.) If you would choose to implement the private secret key, you may ignore the "mp_secured_verified" and send the checksum back to your server for validation. 
-
-## Private Secret Key checksum validation formula
-
-    chksum = MD5(mp_merchant_ID + results.msgType + results.txn_ID + results.amount + results.status_code + merchant_private_secret_key)
 
 ## Support
 
