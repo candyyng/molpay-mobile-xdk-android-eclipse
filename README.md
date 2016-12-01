@@ -4,7 +4,7 @@
 
 #  molpay-mobile-xdk-android-eclipse
 
-This is the complete and functional MOLPay Android(Eclipse) payment module that is ready to be implemented into Eclipse IDE by import the molpay-mobile-xdk-android-eclipse into project workspace. An example application project (MOLPayXdkExample) is provided for MOLPayXDK framework integration reference.
+This is the complete and functional MOLPay Android (Eclipse) payment module that is ready to be implemented into the Eclipse IDE by importing the library molpayXdkEclipse into project workspace. An example application project (MOLPayXDKExample) is provided for MOLPayXDK framework integration reference.
 
 ## Recommended configurations
 
@@ -20,21 +20,29 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
 
 ## Installation
 
-    Step 1 - Download molpayXdkEclipse and import it into project workspace. Note that molpayXdkEclipse requires 'android-support-v7-appcompat'.
+    Step 1 - Download molpayXdkEclipse and import it into project workspace. Note that molpayXdkEclipse requires third party library 'android-support-v7-appcompat'.
 
-    Step 2 - Add \molpayXdkEclipse as reference library in project properties.
+    Step 2 - Add molpayXdkEclipse as reference library in project properties.
 
-    Step 3 - Add MOLPayActivity declaration in project manifest.
+    Step 3 - Add MOLPayActivity declaration 
+    <activity android:name="com.molpay.molpayxdkeclipse.MOLPayActivity"
+            android:label="MOLPay"/>
+    into project manifest.
 
-    Step 4 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into assets\ folder of your project.
+    Step 4 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into the assets\ folder of your project.
 
-    Step 5 - Add the result callback function to get return results when the payment activity ended.
+    Step 5 - Copy and paste custom.css into the assets\ folder of your project.
+
+    Step 6 - Add the result callback function to get returned results when the payment activity ended.
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == MOLPayActivity.MOLPayXDK && resultCode == RESULT_OK){
-            Log.d(MOLPayActivity.MOLPAY, "MOLPay result = "+data.getStringExtra(MOLPayActivity.MOLPayTransactionResult));
+            Log.d(MOLPayActivity.MOLPAY, "MOLPay result = " + data.getStringExtra(MOLPayActivity.MOLPayTransactionResult));
+            TextView tw = (TextView)findViewById(R.id.resultTV);
+            tw.setText(data.getStringExtra(MOLPayActivity.MOLPayTransactionResult));
         }
     }
     
@@ -73,7 +81,7 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
 
     HashMap<String, Object> paymentDetails = new HashMap<>();
 
-    // Mandatory String. A value not less than '1.00'
+    // Mandatory String. A value more than '1.00'
     paymentDetails.put(MOLPayActivity.mp_amount, ""); 
 
     // Mandatory String. Values obtained from MOLPay
@@ -141,6 +149,8 @@ This is the complete and functional MOLPay Android(Eclipse) payment module that 
 
 ## Start the payment module
 
+    Intent intent = new Intent(MainActivity.this, MOLPayActivity.class);
+    intent.putExtra(MOLPayActivity.MOLPayPaymentDetails, paymentDetails);
     startActivityForResult(intent, MOLPayActivity.MOLPayXDK);
 
 ## Cash channel payment process (How does it work?)
