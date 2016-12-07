@@ -24,10 +24,9 @@ This is the complete and functional MOLPay Android (Eclipse) payment module that
 
     Step 2 - Add molpayXdkEclipse as reference library in project properties.
 
-    Step 3 - Add MOLPayActivity declaration 
+    Step 3 - Add MOLPayActivity declaration into project manifest.
     <activity android:name="com.molpay.molpayxdkeclipse.MOLPayActivity"
-            android:label="MOLPay"/>
-    into project manifest.
+              android:label="MOLPay"/>
 
     Step 4 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into the assets\ folder of your project.
 
@@ -109,7 +108,7 @@ This is the complete and functional MOLPay Android (Eclipse) payment module that
     paymentDetails.put(MOLPayActivity.mp_is_escrow, ""); // Put "1" to enable escrow
 
     // Optional for credit card BIN restrictions
-    String binlock[] = {"",""};
+    String binlock[] = { "", "" };
     paymentDetails.put(MOLPayActivity.mp_bin_lock, binlock);
     paymentDetails.put(MOLPayActivity.mp_bin_lock_err_msg, "");
 
@@ -130,7 +129,7 @@ This is the complete and functional MOLPay Android (Eclipse) payment module that
     paymentDetails.put(MOLPayActivity.mp_is_recurring, false);
 
     // Optional for channels restriction
-    String allowedchannels[] = {"",""};
+    String allowedchannels[] = { "", "" };
     paymentDetails.put(MOLPayActivity.mp_allowed_channels, allowedchannels);
 
     // Optional for sandboxed development environment, set boolean value to enable.
@@ -165,6 +164,13 @@ This is the complete and functional MOLPay Android (Eclipse) payment module that
     
     4) After the user done the paying at the 7-Eleven counter, they can close and exit MOLPay XDK by clicking the “Close” button again.
 
+## XDK built-in checksum validator caveats 
+
+    All XDK come with a built-in checksum validator to validate all incoming checksums and return the validation result through the "mp_secured_verified" parameter. However, this mechanism will fail and always return false if merchants are implementing the private secret key (which the latter is highly recommended and prefereable.) If you would choose to implement the private secret key, you may ignore the "mp_secured_verified" and send the checksum back to your server for validation. 
+
+## Private Secret Key checksum validation formula
+
+    chksum = MD5(mp_merchant_ID + results.msgType + results.txn_ID + results.amount + results.status_code + merchant_private_secret_key)
 
 ## Support
 
