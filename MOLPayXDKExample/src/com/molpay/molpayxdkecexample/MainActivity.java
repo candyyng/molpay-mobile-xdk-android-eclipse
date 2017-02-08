@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
 //        paymentDetails.put(MOLPayActivity.mp_express_mode, false);
 //        paymentDetails.put(MOLPayActivity.mp_advanced_email_validation_enabled, false);
 //        paymentDetails.put(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
+//        paymentDetails.put(MOLPayActivity.mp_bill_name_edit_disabled, true);
+//        paymentDetails.put(MOLPayActivity.mp_bill_email_edit_disabled, true);
+//        paymentDetails.put(MOLPayActivity.mp_bill_mobile_edit_disabled, true);
+//        paymentDetails.put(MOLPayActivity.mp_bill_description_edit_disabled, true);
+//        paymentDetails.put("is_submodule", true);
+//        paymentDetails.put("module_id", "abc.com");
+//        paymentDetails.put("wrapper_version", "99");
         
         Intent intent = new Intent(MainActivity.this, MOLPayActivity.class);
         intent.putExtra(MOLPayActivity.MOLPayPaymentDetails, paymentDetails);

@@ -144,7 +144,17 @@ This is the complete and functional MOLPay Android (Eclipse) payment module that
     // Optional, enable this for extended phone format validation based on Google i18n standards.
     paymentDetails.put(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
 
+    // Optional, explicitly force disable billing name edit.
+    paymentDetails.put(MOLPayActivity.mp_bill_name_edit_disabled, true);
 
+    // Optional, explicitly force disable billing email edit.
+    paymentDetails.put(MOLPayActivity.mp_bill_email_edit_disabled, true);
+
+    // Optional, explicitly force disable billing mobile edit.
+    paymentDetails.put(MOLPayActivity.mp_bill_mobile_edit_disabled, true);
+
+    // Optional, explicitly force disable billing description edit.
+    paymentDetails.put(MOLPayActivity.mp_bill_description_edit_disabled, true);
 
 ## Start the payment module
 
